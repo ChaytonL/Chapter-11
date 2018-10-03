@@ -18,12 +18,16 @@ int main()
 
 	increaseNum = increase * .01;
 
-	//end for
+	
 	for (int i = 0; i < size(prices); i++)
 	{
 		prices[i] = prices[i] + (prices[i] * increaseNum);
 		cout << prices[i] << endl;
 	}
+
+	//end for
+
+
 	//display contents of array
 
 
