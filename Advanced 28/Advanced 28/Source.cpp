@@ -27,7 +27,7 @@ int main()
 	//declare variables
 	int searchScore = 0;
 	int total = 0;
-	int scores[10] = { 0.0 };
+	int scores[1000] = { 0.0 };
 	int scoreSize = size(scores);
 
 	int *scoresArray = fillArray(scores, scoreSize);
