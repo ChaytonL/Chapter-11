@@ -3,11 +3,21 @@
 //Created/revised by <your name> on <current date>
 
 #include <iostream>
-#include <ctime>
-#include <stdio.h>
-#include <thread>         // std::this_thread::sleep_for
-#include <chrono>  
+#include <time.h>
+#include <string>
+#include <algorithm>
+ 
 using namespace std;
+
+int *fillArray(int arr[], int elements)
+{
+	srand(time(NULL));
+
+	for (int i = 0; i < elements; i++)
+		arr[i] = rand() % 100 + 1;
+
+	return arr;
+}
 
 int main()
 {
@@ -17,31 +27,22 @@ int main()
 	//declare variables
 	int searchScore = 0;
 	int total = 0;
-	int testScoreGenerator;
 	int scores[10] = { 0.0 };
-	srand(time(NULL));
-	
-	for (int j = 0; j < size(scores); j++)
-	{
-		testScoreGenerator = (rand() % 100) + 1;
-		scores[j] = testScoreGenerator;
-		this_thread::sleep_for(std::chrono::seconds(1));
-	}
-	cout << "Enter a score from 0 through 100 (-1 to end): ";
-	cin >> searchScore;
+	int scoreSize = size(scores);
 
-	
-	while (searchScore >= 0)
-	{
+	int *scoresArray = fillArray(scores, scoreSize);
+
+	while (searchScore >= 0) {
+
+
 		total = 0;
-		//search for score
-		for (int x = 0; x < 1; x++) {
 
-			
-			cout << total << endl;
+			for (int x = 0; x < size(scores); x += 1) {
+				if (scores[x] == searchScore)
+					total += 1;
 
-		}
-		
+			}
+
 		//end if    
 		//end for
 
@@ -52,8 +53,9 @@ int main()
 
 		cout << "Enter a score from 0 through 100 (-1 to end): ";
 		cin >> searchScore;
-	}  //end while
+	}
+	 //end while
 
-	   //system("pause");
+	system("pause");
 	return 0;
 }	//end of main function
